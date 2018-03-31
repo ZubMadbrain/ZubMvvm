@@ -16,16 +16,16 @@ This project shows an example of how to implement MVVM in Xamarin.
   - If not already existing, create an emulator for the latest API device
   - tested on: API 25
 
-### Running a test
-## For Android
+## Running a test
+### For Android
 - Set **XamarinMVVM.Android** as startup project
 - Build project and run
 
-## For IOS
+### For IOS
 *in development*
 
-## For UWP
+### For UWP
 *in development*
 
-### Authors
+## Authors
 - **Vince Verwilligen** - initial worker - [mvvm](https://github.com/ZubMadbrain/mvvm)
