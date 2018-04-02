@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace ZubMvvc.Examples.Xamarin
+namespace ZubMvvmc.Examples.Xamarin.Pages
 {
-	public partial class MainPage : ContentPage
+	public partial class MainPage : ZubMvvmc.Controls.Page
 	{
 		public MainPage()
 		{

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ZubMvvmc.Controls
+namespace ZubMvvmc.Examples.Xamarin.ViewModels
 {
-    public class View : Xamarin.Forms.ContentView
+    class ContactsViewModel
     {
     }
 }

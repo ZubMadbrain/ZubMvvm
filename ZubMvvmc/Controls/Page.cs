@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ZubMvvmc.Controls
 {
-    public class Page
+    public class Page : Xamarin.Forms.ContentPage
     {
     }
 }
