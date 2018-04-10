@@ -1,11 +1,32 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<zubControls:View xmlns="http://xamarin.com/schemas/2014/forms" 
+<zubControls:ObjectView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:zubControls="clr-namespace:ZubMvvmc.Controls;assembly=ZubMvvmc"
              x:Class="ZubMvvmc.Examples.Xamarin.Views.ContactView">
-  <ContentView.Content>
-      <StackLayout>
-          <Label Text="Hello Xamarin.Forms!" />
-      </StackLayout>
-  </ContentView.Content>
-</zubControls:View>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Label Grid.Column="0" Grid.Row="0" Text="Name" />
+        <Entry Grid.Column="1" Grid.Row="0" Text="{Binding Model.Name}" FontSize="Micro" />
+
+        <Label Grid.Column="0" Grid.Row="1" Text="Address" />
+        <Entry Grid.Column="1" Grid.Row="1" Text="{Binding Model.Address}" FontSize="Micro" />
+
+        <Label Grid.Column="0" Grid.Row="2" Text="Mobile nr." />
+        <Entry Grid.Column="1" Grid.Row="2" Text="{Binding Model.MobileNumber}" FontSize="Micro" />
+
+        <Label Grid.Column="0" Grid.Row="3" Text="Email" />
+        <Entry Grid.Column="1" Grid.Row="3" Text="{Binding Model.Email}" FontSize="Micro" />
+    </Grid>
+
+</zubControls:ObjectView>

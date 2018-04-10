@@ -1,12 +1,36 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<zubControls:View xmlns="http://xamarin.com/schemas/2014/forms" 
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:zubControls="clr-namespace:ZubMvvmc.Controls;assembly=ZubMvvmc"
-             x:Class="ZubMvvmc.Examples.Xamarin.Views.ContactsView"
->
-  <ContentView.Content>
-      <StackLayout>
-          <Label Text="Hello Xamarin.Forms!" />
-      </StackLayout>
-  </ContentView.Content>
-</zubControls:View>
+<zubControls:ObjectsView xmlns="http://xamarin.com/schemas/2014/forms" 
+                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                  xmlns:zubControls="clr-namespace:ZubMvvmc.Controls;assembly=ZubMvvmc"
+                  xmlns:converters="clr-namespace:ZubMvvmc.Converters;assembly=ZubMvvmc"
+                  x:Class="ZubMvvmc.Examples.Xamarin.Views.ContactsView"
+                         x:Name="contactsView">
+    <zubControls:View.Resources>
+        <ResourceDictionary>
+            <converters:OppositeBooleanConverter x:Key="oppositeBooleanConverter" />
+        </ResourceDictionary>
+    </zubControls:View.Resources>
+
+    <StackLayout>
+        <Label Text="Models" />
+
+        <ListView ItemsSource="{Binding Models}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding BindingContext.ItemTappedCommand, Source={x:Reference contactsView}}"
+                                                      CommandParameter="{Binding .}"/>
+                            </StackLayout.GestureRecognizers>
+                            <Label Text="{Binding Name}" FontSize="Micro" />
+                            <Label Text="{Binding Address}" FontSize="Micro" />
+                            <Label Text="{Binding MobileNumber}" FontSize="Micro" />
+                            <Label Text="{Binding Email}" FontSize="Micro" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</zubControls:ObjectsView>

@@ -6,6 +6,8 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using ZubMvvmc.Core;
+using System.Threading.Tasks;
 
 namespace ZubMvvmc.Examples.Xamarin.Droid
 {
@@ -21,6 +23,31 @@ namespace ZubMvvmc.Examples.Xamarin.Droid
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
             LoadApplication(new App());
+
+            AppDomain.CurrentDomain.UnhandledException += (sender, e) =>
+            {
+                try
+                {
+                    Exception ex = e.ExceptionObject as Exception;
+                    if (ex != null)
+                        InsightsWrapper.ReportException(ex);
+                }
+                catch (Exception ex)
+                {
+                    InsightsWrapper.ReportException(ex);
+                }
+            };
+
+
+            TaskScheduler.UnobservedTaskException += (sender, e) =>
+            {
+                InsightsWrapper.ReportException(e.Exception);
+            };
+
+            AndroidEnvironment.UnhandledExceptionRaiser += (sender, e) =>
+            {
+                InsightsWrapper.ReportException(e.Exception);
+            };
         }
     }
 }

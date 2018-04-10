@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -79,14 +79,15 @@
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
-
   <ItemGroup>
+    <ProjectReference Include="..\..\ZubMvvmc\ZubMvvmc.csproj">
+      <Project>{F4BE692A-AA27-4E26-81E2-9703E93BEBB8}</Project>
+      <Name>ZubMvvmc</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ZubMvvmc.Examples.Xamarin\ZubMvvmc.Examples.Xamarin.csproj">
       <Project>{6CB8B234-2A22-4596-9659-614638298758}</Project>
       <Name>ZubMvvmc.Examples.Xamarin</Name>
     </ProjectReference>
   </ItemGroup>
-
-
- <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

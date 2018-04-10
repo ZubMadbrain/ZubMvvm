@@ -4,9 +4,12 @@
              xmlns:local="clr-namespace:ZubMvvmc.Examples.Xamarin"
              xmlns:zubControls="clr-namespace:ZubMvvmc.Controls;assembly=ZubMvvmc"
              x:Class="ZubMvvmc.Examples.Xamarin.Pages.MainPage">
-
-	<Label Text="Welcome to Xamarin.Forms!" 
+    <StackLayout Orientation="Vertical">
+        <Label Text="ZubMVVMC Xamarin Example" 
            VerticalOptions="Center" 
            HorizontalOptions="Center" />
+
+        <Button Text="Show contacts" Command="{Binding ShowContactsCommand}" />
+    </StackLayout>
 
 </zubControls:Page>

@@ -10,7 +10,7 @@ using Xamarin.Forms.Xaml;
 namespace ZubMvvmc.Examples.Xamarin.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class ContactsView : ZubMvvmc.Controls.View
+	public partial class ContactsView : ZubMvvmc.Controls.ObjectsView
     {
 		public ContactsView ()
 		{

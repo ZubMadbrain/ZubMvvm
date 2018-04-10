@@ -4,19 +4,31 @@ using System.Text;
 using ZubMvvmc.Examples.Xamarin.Views;
 using ZubMvvmc.Controls;
 using ZubMvvmc.Core;
+using ZubMvvmc.Examples.Xamarin.ViewModels;
+using System.Collections.ObjectModel;
 
 namespace ZubMvvmc.Examples.Xamarin.Controllers
 {
     public class ContactController : Controller
     {
-        public override View GetObjectsView()
+        protected override View GetObjectView(Model model)
         {
-            return new ContactView();
+            return new ContactView() { BindingContext = new ContactViewModel(model) };
         }
 
-        public override View GetObjectView()
+        protected override View GetObjectsView(ObservableCollection<Model> models)
         {
-            return new ContactsView();
+            return new ContactsView() { BindingContext = new ContactsViewModel(models) };
         }
+
+        //public override Page GetObjectPage()
+        //{
+        //    return new ContactsView();
+        //}
+
+        //public override Page GetObjectsPage()
+        //{
+        //    return new ContactsView();
+        //}
     }
 }

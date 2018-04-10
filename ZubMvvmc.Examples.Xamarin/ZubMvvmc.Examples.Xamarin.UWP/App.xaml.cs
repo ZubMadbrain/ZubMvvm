@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using ZubMvvmc.Core;
 
 namespace ZubMvvmc.Examples.Xamarin.UWP
 {
@@ -39,8 +40,6 @@ namespace ZubMvvmc.Examples.Xamarin.UWP
         /// <param name="e">Details about the launch request and process.</param>
         protected override void OnLaunched(LaunchActivatedEventArgs e)
         {
-
-
             Frame rootFrame = Window.Current.Content as Frame;
 
             // Do not repeat app initialization when the Window already has content,
@@ -52,7 +51,8 @@ namespace ZubMvvmc.Examples.Xamarin.UWP
 
                 rootFrame.NavigationFailed += OnNavigationFailed;
 
-                Xamarin.Forms.Forms.Init(e);
+                // Note: global:: added cause of conflicts with namespace
+                global::Xamarin.Forms.Forms.Init(e);
 
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {
@@ -72,6 +72,20 @@ namespace ZubMvvmc.Examples.Xamarin.UWP
             }
             // Ensure the current window is active
             Window.Current.Activate();
+
+            UnhandledException += (sender, eo) =>
+            {
+                try
+                {
+                    Exception ex = eo.Exception as Exception;
+                    if (ex != null)
+                        InsightsWrapper.ReportException(ex);
+                }
+                catch (Exception ex)
+                {
+                    InsightsWrapper.ReportException(ex);
+                }
+            };
         }
 
         /// <summary>

@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 
 using Xamarin.Forms;
+using ZubMvvmc.Core;
+using ZubMvvmc.Examples.Xamarin.PageViewModels;
 
 namespace ZubMvvmc.Examples.Xamarin
 {
@@ -13,8 +15,12 @@ namespace ZubMvvmc.Examples.Xamarin
 		{
 			InitializeComponent();
 
-			MainPage = new ZubMvvmc.Examples.Xamarin.Pages.MainPage();
-		}
+            ZubMvvmc.Controls.Page mainPage = new ZubMvvmc.Examples.Xamarin.Pages.MainPage();
+            mainPage.BindingContext = new MainPageViewModel();
+
+            MainPage = new NavigationPage(mainPage);
+            NavigationController.Navigation = MainPage.Navigation;
+        }
 
 		protected override void OnStart ()
 		{

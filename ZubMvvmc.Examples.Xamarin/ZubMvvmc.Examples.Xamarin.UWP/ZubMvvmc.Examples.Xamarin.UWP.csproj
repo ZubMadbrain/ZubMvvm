@@ -149,9 +149,13 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="2.5.0.280555" />
-    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.0.1"/>
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.0.1" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\ZubMvvmc\ZubMvvmc.csproj">
+      <Project>{F4BE692A-AA27-4E26-81E2-9703E93BEBB8}</Project>
+      <Name>ZubMvvmc</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ZubMvvmc.Examples.Xamarin\ZubMvvmc.Examples.Xamarin.csproj">
       <Project>{6CB8B234-2A22-4596-9659-614638298758}</Project>
       <Name>ZubMvvmc.Examples.Xamarin</Name>
